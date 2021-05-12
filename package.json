@@ -1,0 +1,36 @@
+{
+  "name": "iot-wdio-cucumber-boilerplate",
+  "version": "1.0.0",
+  "description": "this is the boilerplate to create cucumber tests and automate them with wdio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemanuelnexplore/iot-wdio-cucumber-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josemanuelnexplore/iot-wdio-cucumber-boilerplate/issues"
+  },
+  "homepage": "https://github.com/josemanuelnexplore/iot-wdio-cucumber-boilerplate#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "@wdio/cli": "^7.5.7",
+    "@wdio/cucumber-framework": "^7.5.3",
+    "@wdio/local-runner": "^7.5.7",
+    "@wdio/spec-reporter": "^7.5.7",
+    "chromedriver": "^90.0.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "wdio-chromedriver-service": "^7.0.0"
+  }
+}
