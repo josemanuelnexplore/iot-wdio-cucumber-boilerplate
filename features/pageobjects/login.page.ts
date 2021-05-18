@@ -9,7 +9,7 @@ class LoginPage extends Page {
      */
     get inputUsername () { return $('#username') }
     get inputPassword () { return $('#password') }
-    get btnSubmit () { return $('button[type="submit"]') }
+    get btnSubmit () { return $('#kc-login') }
 
     /**
      * a method to encapsule automation code to interact with the page
@@ -24,9 +24,9 @@ class LoginPage extends Page {
     /**
      * overwrite specifc options to adapt it to page object
      */
-    open () {
-        return super.open('login');
-    }
+    // open () {
+    //     return super.open('login');
+    // }
 }
 
 export default new LoginPage();

@@ -7,7 +7,7 @@ class SecurePage extends Page {
     /**
      * define selectors using getter methods
      */
-    get flashAlert () { return $('#flash') }
+    get header () { return $('h1=Project Overview') }
 }
 
 export default new SecurePage();
