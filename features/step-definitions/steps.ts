@@ -15,7 +15,7 @@ When(/^I login with (\w+) and (.+)$/, async (username, password) => {
     await LoginPage.login(username, password)
 });
 
-Then(/^Then I should land on the [^"]*$/, async (message) => {
+Then(/^I should land on the (.*)$/, async (message) => {
  await expect(SecurePage.header).toHaveTextContaining(message);
 });
 
