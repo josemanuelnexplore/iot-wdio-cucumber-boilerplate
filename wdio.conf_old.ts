@@ -1,4 +1,5 @@
-export const config: WebdriverIO.Config = {
+import cucumberJson from 'wdio-cucumberjs-json-reporter';
+exports.config = {
     //
     // ====================
     // Runner Configuration
@@ -12,16 +13,9 @@ export const config: WebdriverIO.Config = {
     // Specify Test Files
     // ==================
     // Define which test specs should run. The pattern is relative to the directory
-    // from which `wdio` was called.
-    //
-    // The specs are defined as an array of spec files (optionally using wildcards
-    // that will be expanded). The test for each spec file will be run in a separate
-    // worker process. In order to have a group of spec files run in the same worker
-    // process simply enclose them in an array within the specs array.
-    //
-    // If you are calling `wdio` from an NPM script (see https://docs.npmjs.com/cli/run-script),
-    // then the current working directory is where your `package.json` resides, so `wdio`
-    // will be called from there.
+    // from which `wdio` was called. Notice that, if you are calling `wdio` from an
+    // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
+    // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
         './features/**/*.feature'
@@ -82,7 +76,7 @@ export const config: WebdriverIO.Config = {
     // - @wdio/mocha-framework, @wdio/jasmine-framework
     // - @wdio/local-runner
     // - @wdio/sumologic-reporter
-    // - @wdio/cli, @wdio/config, @wdio/utils
+    // - @wdio/cli, @wdio/config, @wdio/sync, @wdio/utils
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     // logLevels: {
     //     webdriver: 'info',
@@ -97,7 +91,7 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -135,7 +129,7 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec', 'cucumberjs-json'],
 
 
     //
@@ -238,8 +232,14 @@ export const config: WebdriverIO.Config = {
     /**
      * Runs after a Cucumber step
      */
-    // afterStep: function (step, context) {
-    // },
+     afterStep: function (step, context) {
+        cucumberJson.attach({"json-string": "Esto es una prueba"}, 'application/json');
+
+        // Attach a screenshot in a before hook
+        // cucumberJson.attach(browser.takeScreenshot(), 'image/png');
+    },
+   
+
     /**
      * Runs after a Cucumber scenario
      */

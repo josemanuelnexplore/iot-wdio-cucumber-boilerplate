@@ -1,5 +1,7 @@
+@Login @Regression
 Feature: Login into the website
 
+@login
   Scenario Outline: As a user, I can log into the secure area
 
     Given I am on the login page
@@ -8,4 +10,4 @@ Feature: Login into the website
 
     Examples:
       | username | password |
-      | john | john |
+      | john     | john     |
